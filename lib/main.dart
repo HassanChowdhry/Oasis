@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:youtube_clone/features/auth/pages/login.dart';
+import 'package:youtube_clone/features/auth/pages/username.dart';
 import 'package:youtube_clone/firebase_options.dart';
 import 'package:youtube_clone/home_page.dart';
 
@@ -27,9 +28,9 @@ class MyApp extends ConsumerWidget {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) {
-            return const LoginPage();
+            return LoginPage();
           }
-          return HomePage();
+          return UsernamePage();
         },
       ),
     );
